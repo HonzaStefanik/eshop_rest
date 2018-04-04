@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <mvc:interceptors>
+        <bean id="authenticationInterceptor" class="org.hsnr.rest.api.config.AuthenticationInterceptor">
+          <property name="userDaoService" ref="userDaoService"/>
+        </bean>
+    </mvc:interceptors>
+
+  <bean id="orderRestController" class="org.hsnr.rest.api.controllers.OrderRestController">
+    <property name="orderDaoService" ref="orderDaoService"/>
+  </bean>
+
+  <bean id="userRestController" class="org.hsnr.rest.api.controllers.UserRestController">
+    <property name="userDaoService" ref="userDaoService"/>
+  </bean>
+
+  <bean id="productRestController" class="org.hsnr.rest.api.controllers.ProductRestController">
+      <property name="productDaoService" ref="productDaoService"/>
+  </bean>
+
+  <bean id="abstractDao" class="org.hsnr.rest.domain.dao.AbstractDao" abstract="true"/>
+
+  <bean id="userDaoService" class="org.hsnr.rest.domain.dao.UserDaoService" parent="abstractDao">
+    <property name="dao" ref="userDao"/>
+  </bean>
+
+  <bean id="orderDaoService" class="org.hsnr.rest.domain.dao.OrderDaoService" parent="abstractDao">
+    <property name="dao" ref="orderDao"/>
+  </bean>
+
+  <bean id="productDaoService" class="org.hsnr.rest.domain.dao.ProductDaoService" parent="abstractDao">
+    <property name="dao" ref="productDao"/>
+  </bean>
+
+  <bean id="personDaoService" class="org.hsnr.rest.domain.dao.PersonDaoService" parent="abstractDao">
+    <property name="dao" ref="personDao"/>
+  </bean>
+
+
+  <bean id="orderDao" class="org.hsnr.rest.domain.dao.OrderDao"/>
+  <bean id="userDao" class="org.hsnr.rest.domain.dao.UserDao"/>
+  <bean id="productDao" class="org.hsnr.rest.domain.dao.ProductDao"/>
+  <bean id="personDao" class="org.hsnr.rest.domain.dao.PersonDao"/>
+
+</beans>

@@ -1,0 +1,29 @@
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <div class="sidebar-brand header-text">Categories</div>
+    <ul class="sidebar-nav white">
+      <li class="block" *ngFor="let category of getCategories()">{{ category }}</li>
+      <li class="block bottom-align-text"><a [routerLink]="['/add-product']" class="btn btn-link">Add product</a></li> <!-- needs to be admin only, roles not implemented yet-->
+    </ul>
+  </div>
+</div>
+<div class="container container-table">
+  <div class="row vertical-center-row" *ngFor="let product of productArray">
+
+      <div class="col-md-4 column product-box">
+        <a class="product-ref" href="#">
+          <img src="http://placehold.it/460x250/e67e22/ffffff&text=HTML5" class="img">
+          <!--<img src="data:image/PNG;base64,{{product.image}}" class="img">-->
+          <div class="product-title">{{ product.name }}</div>
+        </a>
+        <div class="product-price">
+          <div class="pull-right"><a href="#" class="btn btn-info btn-sm" role="button">BUY</a></div>
+          <div class="price-text">{{product.price}}</div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+

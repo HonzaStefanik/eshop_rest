@@ -1,0 +1,55 @@
+<form [formGroup]="rForm" (ngSubmit)="submitProduct(rForm.value)">
+  <div class="container-fluid text-lg-center">
+    <div class="jumbotron ">
+      <h1>New product</h1>
+    </div>
+    <div class="row">
+      <form [formGroup]="rForm" (ngSubmit)="submitProduct(rForm.value)">
+
+        <label class="control-label col-md-2">Name:</label>
+        <div class="col-md-10">
+          <input class="form-control" formControlName="name">
+        </div>
+        <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">Enter the product's name.</div>
+
+        <label class="control-label col-md-2">Price:</label>
+        <div class="col-md-10">
+          <input type="number" class="form-control" min="1" formControlName="price">
+        </div>
+        <div *ngIf="!rForm.controls['price'].valid && rForm.controls['price'].touched">Enter the product's price.</div>
+
+        <label class="control-label col-md-2">Stock:</label>
+        <div class="col-md-10">
+          <input type="number" class="form-control" min="0" formControlName="stockAmount">
+        </div>
+        <div *ngIf="!rForm.controls['stockAmount'].valid && rForm.controls['stockAmount'].touched">Enter the product's stock amount.</div>
+
+        <label class="control-label col-md-2">Type:</label>
+        <div class="col-md-10">
+          <select class="form-control" formControlName="category">
+            <option *ngFor="let category of getCategories()" value="{{category}}">{{category}}</option>
+          </select>
+        </div>
+        <div *ngIf="!rForm.controls['category'].valid && rForm.controls['category'].touched">Select the product's category.</div>
+
+        <label class="control-label col-md-2">Image:</label>
+        <div class="col-md-10">
+          <input class="form-control">
+        </div>
+
+        <label class="control-label col-md-2">Description:</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" rows="10" formControlName="description"></textarea>
+        </div>
+        <div *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">Enter the product's description.</div>
+
+        <div class="col-md-offset-5 col-md-7">
+          <input type="submit" class="btn btn-info" value="Save product" name="save" [disabled]="!rForm.valid">
+        </div>
+        <a [routerLink]="['/products']" class="btn btn-link">Back</a>
+      </form>
+
+    </div>
+  </div>
+</form>
+

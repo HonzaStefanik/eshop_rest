@@ -1,0 +1,102 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  width: 100%;
+
+}
+
+a{
+  color: #CCC;
+}
+a:hover{
+  color: #CCC;
+  text-decoration: none;
+}
+.block {
+  display: block;
+  color: #CCC;
+  padding: 8px 25px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.block:hover {
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+}
+
+#wrapper {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  position: fixed;
+  left: 250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #333;
+}
+
+.header-text {
+  margin: 10% 30%;
+  color: #CCC;
+  font-size: 20px;
+}
+
+.product-box {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+.product-title {
+  font-weight: bold;
+  padding: 5px 0 5px 0;
+}
+
+.product-price {
+  border-top: 1px solid #dadada;
+  padding-top: 5px;
+}
+
+.price-text {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.img {
+  width: 100%;
+}
+
+.container-table {
+  display: table;
+}
+
+.vertical-center-row {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.product-ref {
+  color: black;
+}
+
+.product-ref:hover {
+  text-decoration: none;
+}
+
+.bottom-align-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
